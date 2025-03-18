@@ -1,7 +1,7 @@
 .question .content {
   overflow: hidden;
   height: 0; /* Start at height 0 for collapsed */
-  transition: height 1s ease; /* Smooth transition */
   background-color: #f0f0f0;
   box-sizing: border-box;
+  margin: 0;
 }
