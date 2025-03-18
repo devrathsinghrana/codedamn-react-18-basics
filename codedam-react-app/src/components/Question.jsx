@@ -1,34 +1,34 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Question.css";
 
-const Question = (props) => {
-  const { title, info } = props;
+const Question = ({ title, info }) => {
   const [show, setShow] = useState(false);
   const contentRef = useRef(null);
 
   function toggleContent() {
-    setShow((show) => !show);
-  }
-
-  useEffect(() => {
     const content = contentRef.current;
-    if (content) {
-      if (content.style.height && content.style.height !== "0px") {
-        // Collapse: Set height to current scrollHeight, then to 0
-        content.style.height = content.scrollHeight + "px";
-        requestAnimationFrame(() => {
-          content.style.height = "0";
-        });
-      } else {
-        // Expand: Set height to scrollHeight and reset to auto after animation
-        content.style.height = content.scrollHeight + "px";
-        content.addEventListener("transitionend", function handler() {
-          content.style.height = "auto";
-          content.removeEventListener("transitionend", handler);
-        });
-      }
+
+    if (!content) return;
+
+    if (!show) {
+      // Expand: Set to scrollHeight
+      content.style.height = content.scrollHeight + "px";
+
+      // Wait for transition to complete, then reset to "auto"
+      content.addEventListener("transitionend", function handler() {
+        content.style.height = "auto";
+        content.removeEventListener("transitionend", handler);
+      });
+    } else {
+      // Collapse: Set height to its current computed height, then transition to 0
+      content.style.height = `${content.scrollHeight}px`;
+      requestAnimationFrame(() => {
+        content.style.height = "0";
+      });
     }
-  }, [show]);
+
+    setShow((prev) => !prev);
+  }
 
   return (
     <article className="question">
