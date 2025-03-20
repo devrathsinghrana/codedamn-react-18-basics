@@ -4,12 +4,14 @@ import ToDo from "./apps/ToDo";
 import Counter from "./apps/Counter";
 import RandomQuotes from "./apps/RandomQuotes";
 import FaqAccordion from "./apps/FaqAccordion";
+import Quiz from "./apps/Quiz";
 
 const APP_NAME = {
   TODO: "todo-app",
   COUNTER: "counter-app",
   RANDOMIZE_QUOTES: "randomize-quotes-app",
   FAQ_ACCORDION: "faq-accordion-app",
+  QUIZ: "quiz-app",
 };
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
       <button onClick={() => setAppOnClick(APP_NAME["FAQ_ACCORDION"])}>
         FAQ App
       </button>
+      <button onClick={() => setAppOnClick(APP_NAME["QUIZ"])}>QUIZ App</button>
       <main>
         {(() => {
           switch (currentApp) {
@@ -42,6 +45,8 @@ function App() {
               return <RandomQuotes />;
             case APP_NAME["FAQ_ACCORDION"]:
               return <FaqAccordion />;
+            case APP_NAME["QUIZ"]:
+              return <Quiz />;
             default:
               return <ToDo />;
           }
