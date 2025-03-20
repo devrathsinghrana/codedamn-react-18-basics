@@ -5,6 +5,7 @@ import Counter from "./apps/Counter";
 import RandomQuotes from "./apps/RandomQuotes";
 import FaqAccordion from "./apps/FaqAccordion";
 import Quiz from "./apps/Quiz";
+import BirthdayReminder from "./apps/BirthdayReminder";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -12,6 +13,7 @@ const APP_NAME = {
   RANDOMIZE_QUOTES: "randomize-quotes-app",
   FAQ_ACCORDION: "faq-accordion-app",
   QUIZ: "quiz-app",
+  BIRTHDAY_REMINDER: "birthday-reminder-app",
 };
 
 function App() {
@@ -33,7 +35,10 @@ function App() {
       <button onClick={() => setAppOnClick(APP_NAME["FAQ_ACCORDION"])}>
         FAQ App
       </button>
-      <button onClick={() => setAppOnClick(APP_NAME["QUIZ"])}>QUIZ App</button>
+      <button onClick={() => setAppOnClick(APP_NAME["QUIZ"])}>QUIZ App</button>{" "}
+      <button onClick={() => setAppOnClick(APP_NAME["BIRTHDAY_REMINDER"])}>
+        Birthday Reminder App
+      </button>
       <main>
         {(() => {
           switch (currentApp) {
@@ -47,6 +52,8 @@ function App() {
               return <FaqAccordion />;
             case APP_NAME["QUIZ"]:
               return <Quiz />;
+            case APP_NAME["BIRTHDAY_REMINDER"]:
+              return <BirthdayReminder />;
             default:
               return <ToDo />;
           }
