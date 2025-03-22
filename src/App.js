@@ -6,6 +6,8 @@ import RandomQuotes from "./apps/RandomQuotes";
 import FaqAccordion from "./apps/FaqAccordion";
 import Quiz from "./apps/Quiz";
 import BirthdayReminder from "./apps/BirthdayReminder";
+import { Route, BrowserRouter, Routes } from "react-router";
+import Tiktok from "./apps/Tiktok";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -25,40 +27,62 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => setAppOnClick(APP_NAME["TODO"])}>To Do App</button>
-      <button onClick={() => setAppOnClick(APP_NAME["COUNTER"])}>
-        Counter App
-      </button>
-      <button onClick={() => setAppOnClick(APP_NAME["RANDOMIZE_QUOTES"])}>
-        Random Quote App
-      </button>
-      <button onClick={() => setAppOnClick(APP_NAME["FAQ_ACCORDION"])}>
-        FAQ App
-      </button>
-      <button onClick={() => setAppOnClick(APP_NAME["QUIZ"])}>QUIZ App</button>{" "}
-      <button onClick={() => setAppOnClick(APP_NAME["BIRTHDAY_REMINDER"])}>
-        Birthday Reminder App
-      </button>
-      <main>
-        {(() => {
-          switch (currentApp) {
-            case APP_NAME["TODO"]:
-              return <ToDo />;
-            case APP_NAME["COUNTER"]:
-              return <Counter />;
-            case APP_NAME["RANDOMIZE_QUOTES"]:
-              return <RandomQuotes />;
-            case APP_NAME["FAQ_ACCORDION"]:
-              return <FaqAccordion />;
-            case APP_NAME["QUIZ"]:
-              return <Quiz />;
-            case APP_NAME["BIRTHDAY_REMINDER"]:
-              return <BirthdayReminder />;
-            default:
-              return <ToDo />;
-          }
-        })()}
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <button onClick={() => setAppOnClick(APP_NAME["TODO"])}>
+                  To Do App
+                </button>
+                <button onClick={() => setAppOnClick(APP_NAME["COUNTER"])}>
+                  Counter App
+                </button>
+                <button
+                  onClick={() => setAppOnClick(APP_NAME["RANDOMIZE_QUOTES"])}
+                >
+                  Random Quote App
+                </button>
+                <button
+                  onClick={() => setAppOnClick(APP_NAME["FAQ_ACCORDION"])}
+                >
+                  FAQ App
+                </button>
+                <button onClick={() => setAppOnClick(APP_NAME["QUIZ"])}>
+                  QUIZ App
+                </button>{" "}
+                <button
+                  onClick={() => setAppOnClick(APP_NAME["BIRTHDAY_REMINDER"])}
+                >
+                  Birthday Reminder App
+                </button>
+                <main>
+                  {(() => {
+                    switch (currentApp) {
+                      case APP_NAME["TODO"]:
+                        return <ToDo />;
+                      case APP_NAME["COUNTER"]:
+                        return <Counter />;
+                      case APP_NAME["RANDOMIZE_QUOTES"]:
+                        return <RandomQuotes />;
+                      case APP_NAME["FAQ_ACCORDION"]:
+                        return <FaqAccordion />;
+                      case APP_NAME["QUIZ"]:
+                        return <Quiz />;
+                      case APP_NAME["BIRTHDAY_REMINDER"]:
+                        return <BirthdayReminder />;
+                      default:
+                        return <ToDo />;
+                    }
+                  })()}
+                </main>
+              </>
+            }
+          />
+          <Route path="/tik-tok" element={<Tiktok />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
