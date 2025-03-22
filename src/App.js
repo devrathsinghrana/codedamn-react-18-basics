@@ -8,6 +8,8 @@ import Quiz from "./apps/Quiz";
 import BirthdayReminder from "./apps/BirthdayReminder";
 import { Route, BrowserRouter, Routes } from "react-router";
 import Tiktok from "./apps/Tiktok";
+import Tour from "./apps/Tour";
+import Menus from "./apps/Menus";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -81,6 +83,8 @@ function App() {
             }
           />
           <Route path="/tik-tok" element={<Tiktok />} />
+          <Route path="/tour" element={<Tour />} />
+          <Route path="/restro" element={<Menus />} />
         </Routes>
       </BrowserRouter>
     </div>
