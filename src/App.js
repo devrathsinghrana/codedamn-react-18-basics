@@ -6,7 +6,7 @@ import RandomQuotes from "./apps/RandomQuotes";
 import FaqAccordion from "./apps/FaqAccordion";
 import Quiz from "./apps/Quiz";
 import BirthdayReminder from "./apps/BirthdayReminder";
-import { Route, BrowserRouter, Routes } from "react-router";
+import { Route, BrowserRouter, Routes, Link } from "react-router";
 import Tiktok from "./apps/Tiktok";
 import Tour from "./apps/Tour";
 import Menus from "./apps/Menus";
@@ -59,6 +59,11 @@ function App() {
                 >
                   Birthday Reminder App
                 </button>
+                <Link to="/tik-tok">Tiktok app</Link>
+                <br />
+                <Link to="/tour">Tours app</Link>
+                <br />
+                <Link to="/restro">Restro app</Link>
                 <main>
                   {(() => {
                     switch (currentApp) {
