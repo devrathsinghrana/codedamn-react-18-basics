@@ -10,6 +10,7 @@ import { Route, BrowserRouter, Routes, Link } from "react-router";
 import Tiktok from "./apps/Tiktok";
 import Tour from "./apps/Tour";
 import Menus from "./apps/Menus";
+import LazyInitializer from "./apps/LazyInitializer";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -90,6 +91,7 @@ function App() {
           <Route path="/tik-tok" element={<Tiktok />} />
           <Route path="/tour" element={<Tour />} />
           <Route path="/restro" element={<Menus />} />
+          <Route path="/lazy-initializer" element={<LazyInitializer />} />
         </Routes>
       </BrowserRouter>
     </div>
