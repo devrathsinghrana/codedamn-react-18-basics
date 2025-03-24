@@ -11,6 +11,7 @@ import Tiktok from "./apps/Tiktok";
 import Tour from "./apps/Tour";
 import Menus from "./apps/Menus";
 import LazyInitializer from "./apps/LazyInitializer";
+import CounterAppFunctionalStateUpdateWithSetTimeout from "./apps/CounterAppFunctionalStateUpdateWithSetTimeout";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -65,6 +66,10 @@ function App() {
                 <Link to="/tour">Tours app</Link>
                 <br />
                 <Link to="/restro">Restro app</Link>
+                <br />
+                <Link to="/counter-app">
+                  Counter app with functional setState and setTimeout
+                </Link>
                 <main>
                   {(() => {
                     switch (currentApp) {
@@ -92,6 +97,10 @@ function App() {
           <Route path="/tour" element={<Tour />} />
           <Route path="/restro" element={<Menus />} />
           <Route path="/lazy-initializer" element={<LazyInitializer />} />
+          <Route
+            path="/counter-app"
+            element={<CounterAppFunctionalStateUpdateWithSetTimeout />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
