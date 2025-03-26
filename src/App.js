@@ -13,6 +13,7 @@ import Menus from "./apps/Menus";
 import LazyInitializer from "./apps/LazyInitializer";
 import CounterAppFunctionalStateUpdateWithSetTimeout from "./apps/CounterAppFunctionalStateUpdateWithSetTimeout";
 import CreateSetStateLikeClassBasedComponent from "./apps/CreateSetStateLikeClassBasedComponent";
+import UseEffectComponent from "./apps/UseEffectComponent";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -73,8 +74,11 @@ function App() {
                 </Link>
                 <br />
                 <Link to="/classComponentLikeSetState">
-                classComponentLikeSetState
+                  classComponentLikeSetState
                 </Link>
+                <br />
+                <Link to="/useEffectComponent">useEffectComponent</Link>
+                <br />
                 <main>
                   {(() => {
                     switch (currentApp) {
@@ -110,6 +114,7 @@ function App() {
             path="/classComponentLikeSetState"
             element={<CreateSetStateLikeClassBasedComponent />}
           />
+          <Route path="/useEffectComponent" element={<UseEffectComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

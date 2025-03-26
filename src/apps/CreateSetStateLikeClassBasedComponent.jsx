@@ -8,6 +8,8 @@ const initialState = {
 const CreateSetStateLikeClassBasedComponent = () => {
   const [counterObj, setCounterObj] = useState(initialState);
 
+  //in class based this.setState the state object key value passed is updated other keys value remain same as they are states but here setState overrides the previous state so need to spread the old state and update values of new state.
+  
   const _setCounterObj = (newValue) => {
     setCounterObj((prevValue) => {
       return {
