@@ -12,6 +12,7 @@ import Tour from "./apps/Tour";
 import Menus from "./apps/Menus";
 import LazyInitializer from "./apps/LazyInitializer";
 import CounterAppFunctionalStateUpdateWithSetTimeout from "./apps/CounterAppFunctionalStateUpdateWithSetTimeout";
+import CreateSetStateLikeClassBasedComponent from "./apps/CreateSetStateLikeClassBasedComponent";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -70,6 +71,10 @@ function App() {
                 <Link to="/counter-app">
                   Counter app with functional setState and setTimeout
                 </Link>
+                <br />
+                <Link to="/classComponentLikeSetState">
+                classComponentLikeSetState
+                </Link>
                 <main>
                   {(() => {
                     switch (currentApp) {
@@ -100,6 +105,10 @@ function App() {
           <Route
             path="/counter-app"
             element={<CounterAppFunctionalStateUpdateWithSetTimeout />}
+          />
+          <Route
+            path="/classComponentLikeSetState"
+            element={<CreateSetStateLikeClassBasedComponent />}
           />
         </Routes>
       </BrowserRouter>
