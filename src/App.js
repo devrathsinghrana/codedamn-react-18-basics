@@ -14,6 +14,7 @@ import LazyInitializer from "./apps/LazyInitializer";
 import CounterAppFunctionalStateUpdateWithSetTimeout from "./apps/CounterAppFunctionalStateUpdateWithSetTimeout";
 import CreateSetStateLikeClassBasedComponent from "./apps/CreateSetStateLikeClassBasedComponent";
 import UseEffectComponent from "./apps/UseEffectComponent";
+import LifecycleHooks from "./apps/LifecycleHooks";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -79,6 +80,10 @@ function App() {
                 <br />
                 <Link to="/useEffectComponent">useEffectComponent</Link>
                 <br />
+                <Link to="/life-cycle-hook-component">
+                  life-cycle-hook-component
+                </Link>
+                <br />
                 <main>
                   {(() => {
                     switch (currentApp) {
@@ -115,6 +120,10 @@ function App() {
             element={<CreateSetStateLikeClassBasedComponent />}
           />
           <Route path="/useEffectComponent" element={<UseEffectComponent />} />
+          <Route
+            path="/life-cycle-hook-component"
+            element={<LifecycleHooks />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
