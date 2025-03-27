@@ -47,7 +47,6 @@ const UseEffectComponent = () => {
 
   useEffect(() => {
     console.log("Something wrong 3!");
-
     // this cleanup function only when component unmounts
     return () => {
       console.log("clean function 3");
