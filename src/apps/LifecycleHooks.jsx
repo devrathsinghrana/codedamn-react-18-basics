@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from "react";
 
 function Child() {
-  console.log("\t\t> Child rendered");
+  console.log("\t\t> Child rendered");//6th render - 5, 7th render - 3
 
   useEffect(() => {
-    console.log("\t\t> Child updated");
+    console.log("\t\t> Child updated");//...6th render - 7, 7th render - 7
     return () => {
-      console.log("\t\t> Child cleanup called");
+      console.log("\t\t> Child cleanup called");// 7th render - 5
     };
   });
 
-  console.log("\t\t> Child rendering complete");
+  console.log("\t\t> Child rendering complete");//...6th render - 6, 7th render - 4
   return <h1>I am a Child</h1>;
 }
 const LifecycleHooks = () => {
-  console.log("> LifecycleHooks render started");
+  console.log("> LifecycleHooks render started");//1st render - 1, 2nd render - 1...6th render - 1, 7th render - 1
   const [counter, setCounter] = useState(() => {
-    console.log("> Lazy init 1 called");
+    console.log("> Lazy init 1 called");//1st render - 2
     return 0;
   });
   const [show, setShow] = useState(() => {
-    console.log("> Lazy init 2 called");
+    console.log("> Lazy init 2 called");//1st render - 3
     return false;
   });
 
   useEffect(() => {
-    console.log("> Counter updated | value = ", counter);
+    console.log("> Counter updated | value = ", counter);//1st render - 5, 2nd render - 4...6th render - 4, 7th render - 8
     if (counter === 5) setShow(true);
     else setShow(false);
     return () => {
-      console.log("> Cleaning up effect of counter | value = ", counter);
+      console.log("> Cleaning up effect of counter | value = ", counter);//2nd render - 3...6th render - 3, 7th render - 6
     };
   }, [counter]);
 
@@ -44,7 +44,7 @@ const LifecycleHooks = () => {
     </div>
   );
 
-  console.log("> LifecycleHooks render completed");
+  console.log("> LifecycleHooks render completed");//1st render - 4, 2nd render - 2...6th render - 2, 7th render - 1
 
   return <>{AppComponent}</>;
 };
