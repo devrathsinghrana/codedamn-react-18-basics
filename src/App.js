@@ -15,6 +15,7 @@ import CounterAppFunctionalStateUpdateWithSetTimeout from "./apps/CounterAppFunc
 import CreateSetStateLikeClassBasedComponent from "./apps/CreateSetStateLikeClassBasedComponent";
 import UseEffectComponent from "./apps/UseEffectComponent";
 import LifecycleHooks from "./apps/LifecycleHooks";
+import AsyncFunctionInUseeffectHooks from "./apps/AsyncFunctionInUseeffectHooks";
 
 const APP_NAME = {
   TODO: "todo-app",
@@ -84,6 +85,10 @@ function App() {
                   life-cycle-hook-component
                 </Link>
                 <br />
+                <Link to="/async-function-in-useEffect-component">
+                  async-function-in-useEffect-component
+                </Link>
+                <br />
                 <main>
                   {(() => {
                     switch (currentApp) {
@@ -123,6 +128,10 @@ function App() {
           <Route
             path="/life-cycle-hook-component"
             element={<LifecycleHooks />}
+          />
+          <Route
+            path="/async-function-in-useEffect-component"
+            element={<AsyncFunctionInUseeffectHooks />}
           />
         </Routes>
       </BrowserRouter>
